@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="code.jquery.com_jquery-3.7.0.min.js"></script>
+        <link rel="stylesheet" href="jquery.bxslider.min.css">
+        <script src="jquery.bxslider.min.js"></script>
+    </head>
+    <body>
+        <style>
+            body {
+                height: 6000px;
+            }
+
+            .imgbox {
+                width:100%; height: 500px;
+            }
+            img{
+                width: 100%;
+                margin: 0 auto;
+            }
+            .mainbox {
+                margin: 400px auto 0;
+                text-align: center;
+                opacity: 0;
+                transform: rotate(-720deg);
+                transition: all 3s;
+            }
+            .mainbox h1 {
+                font-size: 70px;
+            }
+            p {
+                margin: 0 auto;
+                font-weight: 550;
+                font-size: 19px;
+            }
+            span { 
+                font-weight: 600;
+                color: rgb(114, 114, 114);
+            }
+
+            li {list-style: none;}
+            .gallery_wrap {
+                width: 100%; max-width: 1000px; 
+                margin: 0 auto;
+            }
+            li img {width: 100%; height: 500px;}
+            .bx-wrapper {border: 0; background: #fbfbfb; box-shadow: none;}
+        </style>
+
+        <article class="imgbox">
+            <img src="15.PNG">
+        </article>
+        <div class="mainbox">
+            <h1>iPhone 15 출시</h1>
+        </div>
+        <div class="mainbox">
+            <h1>Dynamic Island.<br>그때그때 요긴하게<br> 두둥실.</h1>
+            
+            <p>요긴한 각종 알림과 '실시간 현황'정보를 그때그때 띄워주는 <span> Island.
+             <br>덕분에 다른 일을 하는 중에도 놓치지 않고 한눈에 쉽게 확인 할 수 있죠.
+            <br>호출한 택시의 픽업 안내, 전화 발신자,항공편 정보 등 
+            다양한 정보를<br> 꼭 필요한 순간에 바로 확인할 수 있답니다.</span>
+            </p>
+        </div>
+        <img src="phone.PNG">
+        <div class="mainbox">
+            <h1>온종일 가는 배터리.<br> 하고 싶은 일,<br> 멈추지 않아도 되로록.</h1>
+        </div>
+        <img src="phone3.PNG">
+        <div class="mainbox">
+            <h1>
+                새롭게 찾아온<br>48MP 메인 카메라.<br>놀랍고도 흐뭇한 결과물.
+            </h1>
+        </div>
+        <img src="phone2.PNG">
+        <div class="mainbox">
+            <h1>찍는 중에도 찍은 후에도.<br>시간을 달리는 인물 사진.</h1>
+            <span>더욱 선명한 디테일과 풍부해진 색감으로 인물 사진 기능이 극적으로 달라졌습니다.
+                게다가 이제</span><p>사진을 촬영한 후에도 원하는 인물을 탭하여 초점을 다른 피사체로 옮길 수 있게 되었죠.</p>
+                <span>찍었던 그때로 돌아간 듯, 사뭇 마법 같죠.
+            </span>
+        </div>
+        <img src="phone4.PNG">
+
+        <script>
+            let observer = new IntersectionObserver((e)=>{
+                e.forEach((박스)=>{
+                    if(박스.isIntersecting){
+                        박스.target.style.opacity = 1;
+                    }else {
+                        박스.target.style.opacity = 0;                  }
+                })
+            })
+
+            let div = document.querySelectorAll('div')
+            observer.observe(div[0])
+            observer.observe(div[1])
+            observer.observe(div[2])
+            observer.observe(div[3])
+            observer.observe(div[4])
+        </script>
+        
+        <div class="gallery_wrap">
+            <ul class="slide_gallery">
+                <li><img src="img1.PNG"></li>
+                <li><img src="img2.PNG"></li>
+                <li><img src="img3.PNG"></li>
+                <li><img src="img4.PNG"></li>
+                <li><img src="img5.PNG"></li>
+                <li><img src="img6.PNG"></li>
+                <li><img src="img7.PNG"></li>
+                <li><img src="img8.PNG"></li>
+                <li><img src="img9.PNG"></li>
+                <li><img src="img10.PNG"></li>
+            </ul>
+        </div>
+        <script>
+            $(function() {
+                $('.slide_gallery').bxSlider({
+                    auto: true,
+                    autoControls: true,
+                    stopAutoOnClick: true,
+                    pager: true,
+                    slideMargin: 20,
+                    autoControlsCombine: true
+                });
+            });
+        </script>
+        
+    </body>
+</html>
